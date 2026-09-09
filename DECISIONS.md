@@ -50,3 +50,14 @@ as a quote without competing with headings for attention.
 `tests/test_render.py` has a `__main__` block that runs every `test_*` function and exits
 non-zero on failure, so the suite works with nothing installed but the dependencies. It is
 still a valid pytest module for anyone who wants that.
+
+## D-008: linkify is a declared dependency, not an ambient one
+
+`gfm-like` enables the linkify rule, which raises `ModuleNotFoundError: Linkify enabled
+but not installed` at parse time unless `linkify-it-py` is present. It was present on the
+development machine and absent in a clean `uv tool install` environment, so the first
+global install crashed on the first document.
+
+The dependency is now declared as `markdown-it-py[linkify]`. Under D-002 this is not a
+fourth dependency of our choosing but a required extra of an existing one; turning linkify
+off instead would silently stop rendering the bare URLs that appear in most READMEs.
