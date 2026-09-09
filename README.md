@@ -5,6 +5,10 @@ A terminal markdown viewer that renders what the document says.
 Piping a README through `cat` gives you raw pipes, hashes and backticks. `mdv` gives you
 the table, the heading and the checkbox.
 
+<img width="721" height="846" alt="2026-09-08-225047_hyprshot" src="https://github.com/user-attachments/assets/5ea34a35-48a8-4303-90ac-72f9bc191555" />
+<img width="691" height="197" alt="2026-09-08-225208_hyprshot" src="https://github.com/user-attachments/assets/df1a7db6-7d08-4eed-b08f-2a59a2aa2dc3" />
+
+## How to use
 ```sh
 mdv README.md
 mdv work/todo.md -p          # through a pager
